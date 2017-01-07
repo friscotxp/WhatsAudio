@@ -332,6 +332,7 @@ class MessageViewController: UIViewController , AVSpeechSynthesizerDelegate, AVA
     var playerTapNode:AVAudioPlayerNode!
     var playerNode:AVAudioPlayerNode!
     var mixer:AVAudioMixerNode!
+    var audioFile:AVAudioFile!
     
     func initAudioEngine () {
         engine = AVAudioEngine()
