@@ -310,23 +310,9 @@ class MessageViewController: UIViewController , AVSpeechSynthesizerDelegate, AVA
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    //PRUEBA DE MOTOR NUEVO
+    //DESAROLLO EN EJECUCION
+    //Frisco 07-01-2017
     
     var engine:AVAudioEngine!
     var playerTapNode:AVAudioPlayerNode!
@@ -502,7 +488,48 @@ class MessageViewController: UIViewController , AVSpeechSynthesizerDelegate, AVA
             print("error \(error.localizedDescription)")
             
         }
-    }   
+    }
+    
+    /**
+     Uses an AVAudioPlayerNode to play an audio file.
+     */
+    func playerNodePlay() {
+        if engine.isRunning {
+            print("engine is running")
+            engine.disconnectNodeOutput(engine.inputNode!)
+            engine.connect(playerNode, to: reverbNode, format: mixer.outputFormat(forBus: 0))
+            playerNode.play()
+        } else {
+            
+            do {
+                try engine.start()
+            } catch {
+                print("error couldn't start engine")
+                print("error \(error.localizedDescription)")
+                
+            }
+            playerNode.play()
+            
+        }
+    }
+    
+    
+    /**
+     Taps the mixer output and shoves it into the playerTapNode for later playback.
+     */
+    func tapMixer() {
+        let frameLength:AVAudioFrameCount = 4096
+        
+        let format = mixer.outputFormat(forBus: 0)
+        mixer.installTap(onBus: 0, bufferSize:frameLength, format: format, block:
+            {(buffer:AVAudioPCMBuffer!, time:AVAudioTime!) in
+                //                print("got a mixer buffer \(time)")
+                //                print("got a mixer buffer bc \(buffer.format.channelCount)")
+                //                print("got a mixer buffer fc \(format.channelCount)")
+                self.playerTapNode.scheduleBuffer(buffer, at: nil, options: [], completionHandler: nil)
+        })
+    }
+    
     
 }
 
