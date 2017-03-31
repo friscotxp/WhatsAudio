@@ -1,7 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E191a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -14,14 +18,41 @@
                         <viewControllerLayoutGuide type="bottom" id="xb3-aO-Qok"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="fondo.png" translatesAutoresizingMaskIntoConstraints="NO" id="jFT-Rk-hek">
+                                <rect key="frame" x="60" y="184" width="200" height="200"/>
+                                <color key="tintColor" red="0.36742442954995991" green="0.83692586420000004" blue="0.19724379617433496" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="8Zt-7g-zTx"/>
+                                    <constraint firstAttribute="height" constant="200" id="brx-4Z-h8g"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WhatsAudio" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MzB-4s-pwJ">
+                                <rect key="frame" x="81" y="72" width="158" height="37"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="28"/>
+                                <color key="textColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.36742442949999998" green="0.83692586420000004" blue="0.19724379619999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="MzB-4s-pwJ" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="52" id="EqM-B5-5DQ"/>
+                            <constraint firstItem="MzB-4s-pwJ" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="PBd-JP-PLW"/>
+                            <constraint firstItem="jFT-Rk-hek" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="PkX-k3-ZTG"/>
+                            <constraint firstItem="MzB-4s-pwJ" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="XKs-SB-hbS"/>
+                            <constraint firstItem="jFT-Rk-hek" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="iy4-hZ-NsV"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="49.275362318840585" y="373.36956521739131"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="fondo.png" width="400" height="400"/>
+    </resources>
+    <color key="tintColor" red="0.0" green="1" blue="0.11647947311906615" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

@@ -223,10 +223,8 @@ class ConfigViewController: UIViewController,UIPickerViewDelegate, UIPickerViewD
     func stopAudio() {
         do{
             if audioRecorder?.isRecording == true {
-                //try audioSession.setInputGain(Float (0.8));
                 audioRecorder?.stop()
             } else {
-                //try audioSession.setInputGain(Float (0.8));
                 audioPlayer?.stop()
             }
         }

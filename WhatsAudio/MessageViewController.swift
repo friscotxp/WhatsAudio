@@ -10,8 +10,8 @@ import UIKit
 import Speech
 import AVFoundation
 import Intents
-//import CoreAudio
-//import AudioToolbox
+import CoreAudio
+import AudioToolbox
 
 var audioPlayer: AVAudioPlayer?
 var audioRecorder: AVAudioRecorder?
@@ -62,14 +62,16 @@ class MessageViewController: UIViewController , AVSpeechSynthesizerDelegate, AVA
     @IBOutlet weak var btnEnviar: UIButton!
     @IBOutlet weak var btnConfigurar: UIButton!
     @IBOutlet weak var lblSavedAudio: UILabel!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        print("viewDidLoad...");
         // Do any additional setup after loading the view, typically from a nib.
-        self.audioRecordSetup();
+        //self.audioRecordSetup();
+        self.audioRecordSetupMixes();
+        
         self.fraseText.delegate = self;
-
+        
         if (mensaje != ""){
             fraseText.text  = mensaje;
         }
@@ -77,11 +79,13 @@ class MessageViewController: UIViewController , AVSpeechSynthesizerDelegate, AVA
         if (rate == 0.0){
             rate = Float(0.5);
         }
+        
         if (pitch == 0.0){
             pitch = Float(1);
         }
+        
         if (volume == 0.0){
-            volume = Float(1);
+            volume = Float(0.75);
         }
         
         if (language == ""){
@@ -97,10 +101,12 @@ class MessageViewController: UIViewController , AVSpeechSynthesizerDelegate, AVA
             langVoices = enVoices
             langLabels = enLabels
         }
+        
         btnReproducir.setTitle(langLabels[0], for: .normal);
         btnEnviar.setTitle(langLabels[1], for: .normal);
         btnConfigurar.setTitle(langLabels[2], for: .normal);
         lblSavedAudio.text = langVoices[6] + " : 0 Kb.";
+        
     }
     
     @IBAction func deleteText(_ sender: UIButton) {
@@ -110,7 +116,6 @@ class MessageViewController: UIViewController , AVSpeechSynthesizerDelegate, AVA
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?)    {
         self.view.endEditing(true)
     }
-
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -132,6 +137,7 @@ class MessageViewController: UIViewController , AVSpeechSynthesizerDelegate, AVA
     }
     
     @IBAction func botonProbar(_ sender: Any) {
+        print("[botonProbar]")
         if (fraseText.text! == ""){
             speakString(phrase: langVoices[0]);
         }else{
@@ -139,8 +145,9 @@ class MessageViewController: UIViewController , AVSpeechSynthesizerDelegate, AVA
             speakString(phrase: fraseText.text!);
         }
     }
-
+    
     @IBAction func botonEnviarWhatsapp(_ sender: Any) {
+        print("[botonEnviarWhatsapp]")
         if (fraseText.text! == ""){
             speakString(phrase: langVoices[0]);
         }else{
@@ -148,8 +155,9 @@ class MessageViewController: UIViewController , AVSpeechSynthesizerDelegate, AVA
             speakString(phrase: fraseText.text!);
         }
     }
-
+    
     func open(scheme: String) {
+        print("[open]")
         if let url = URL(string: scheme) {
             if #available(iOS 10, *) {
                 UIApplication.shared.open(url, options: [:],
@@ -164,6 +172,7 @@ class MessageViewController: UIViewController , AVSpeechSynthesizerDelegate, AVA
     }
     
     func sendAudio(){
+        print("[sendAudio]")
         do{
             var fileSize : UInt64 = 0;
             let fileMgr = FileManager.default;
@@ -193,8 +202,8 @@ class MessageViewController: UIViewController , AVSpeechSynthesizerDelegate, AVA
     }
     
     func speakString(phrase : String){
+        print("[speakString]")
         if (hablar){
-            self.recordAudio();
             let speechUtterance = AVSpeechUtterance(string: String(describing: INSpeakableString.init(spokenPhrase: phrase)));
             speechUtterance.voice = AVSpeechSynthesisVoice(language: language);
             speechUtterance.rate = Float(rate);
@@ -202,11 +211,11 @@ class MessageViewController: UIViewController , AVSpeechSynthesizerDelegate, AVA
             speechUtterance.volume = Float(volume);
             speechSynthesizer.delegate = self
             speechSynthesizer.speak(speechUtterance);
-            
         }
     }
     
     @IBAction func botonConfigurar(_ sender: Any) {
+        print("[botonConfigurar]")
         speechSynthesizer.stopSpeaking(at: .immediate);
         speakString(phrase: langVoices[5]);
         //self.performSegue(withIdentifier: "configurar", sender: sender)
@@ -221,8 +230,9 @@ class MessageViewController: UIViewController , AVSpeechSynthesizerDelegate, AVA
         configViewController.mensaje = mensaje;
         self.present(configViewController, animated: true, completion: nil)
     }
-
+    
     func audioRecordSetup(){
+        print("[audioRecordSetup]")
         let fileMgr = FileManager.default
         let dirPaths = fileMgr.urls(for: .documentDirectory, in: .userDomainMask)
         let soundFileURL = dirPaths[0].appendingPathComponent("mensaje.wav")
@@ -248,16 +258,50 @@ class MessageViewController: UIViewController , AVSpeechSynthesizerDelegate, AVA
         }
     }
     
-    func recordAudio() {
-            if (audioRecorder?.isRecording) == false {
-                audioRecorder?.record();
-            }else{
-                audioRecorder?.stop();
-                audioRecorder?.prepareToRecord();
+    func audioRecordSetupMixes(){
+        let fileMgr = FileManager.default
+        let dirPaths = fileMgr.urls(for: .documentDirectory,in: .userDomainMask)
+        let soundFileURL = dirPaths[0].appendingPathComponent("mensaje.wav")
+        
+        let recordSettings =
+            [AVEncoderAudioQualityKey: AVAudioQuality.min.rawValue,
+             AVEncoderBitRateKey: 16,
+             AVNumberOfChannelsKey: 2,
+             AVSampleRateKey: 22050.0] as [String : Any]
+        //44100
+        
+        let audioSession = AVAudioSession.sharedInstance()
+        
+        do {
+            try AVAudioSession.sharedInstance().overrideOutputAudioPort(AVAudioSessionPortOverride.speaker);
+            try audioSession.setCategory(AVAudioSessionCategoryPlayAndRecord);
+            try audioSession.setInputGain(Float (0));
+        } catch {
+            print("Error: \(error)")
+        }
+        
+        do {
+            try audioRecorder = AVAudioRecorder(url: soundFileURL,
+                                                settings: recordSettings as [String : AnyObject])
+            audioRecorder?.delegate=self
+            audioRecorder?.prepareToRecord()
+        } catch {
+            print("Error: \(error)")
         }
     }
     
+    func recordAudio() {
+        print("[recordAudio]")
+        if (audioRecorder?.isRecording) == false {
+            audioRecorder?.record();
+        }else{
+            audioRecorder?.stop();
+            audioRecorder?.prepareToRecord();
+        }
+    }
+
     func stopAudio() {
+        print("[stopAudio]")
         do{
             if audioRecorder?.isRecording == true {
                 audioRecorder?.stop()
@@ -270,14 +314,23 @@ class MessageViewController: UIViewController , AVSpeechSynthesizerDelegate, AVA
     @IBAction func botonPlay(_ sender: Any) {
         if audioRecorder?.isRecording == false {
             do {
+                print("Reproduciendo Audio...");
+                
+                var fileSize : UInt64 = 0;
                 let fileMgr = FileManager.default
                 let dirPaths = fileMgr.urls(for: .documentDirectory, in: .userDomainMask)
                 let soundFileURL = dirPaths[0].appendingPathComponent("mensaje.wav")
+                let attr = try FileManager.default.attributesOfItem(atPath: soundFileURL.relativePath)
+                fileSize = attr[FileAttributeKey.size] as! UInt64
+                fraseAudio.text = langVoices[6] + " : " + String(Int(fileSize/1024)) + " Kb.";
+                
                 try audioPlayer = AVAudioPlayer(contentsOf: soundFileURL)
                 guard let audioPlayer = audioPlayer else { return }
-                audioPlayer.setVolume(1, fadeDuration: 0)
+                //audioPlayer.setVolume(1, fadeDuration: 0)
                 audioPlayer.prepareToPlay()
                 audioPlayer.play()
+                
+                print("Fin de reproduciendo Audio...: " + fileSize.description);
             } catch {
                 print("Error: \(error)")
             }
@@ -291,10 +344,10 @@ class MessageViewController: UIViewController , AVSpeechSynthesizerDelegate, AVA
         btnEnviar.setTitleColor(UIColor.gray, for: UIControlState.disabled);
 //      btnConfigurar.isEnabled = false;
 //      btnConfigurar.setTitleColor(UIColor.gray, for: UIControlState.disabled);
+        self.recordAudio();
     }
     
     func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didFinish utterance: AVSpeechUtterance) {
-        //self.stopAudio();
         self.stopAudio();
         if (self.sendMessage){
             self.sendAudio();
@@ -307,230 +360,4 @@ class MessageViewController: UIViewController , AVSpeechSynthesizerDelegate, AVA
 //      btnConfigurar.isEnabled = true;
 //      btnConfigurar.setTitleColor(UIColor.white, for: UIControlState.normal);
     }
-    
-    
-    
-    //PRUEBA DE MOTOR NUEVO
-    //DESAROLLO EN EJECUCION
-    //Frisco 07-01-2017
-    
-    var engine:AVAudioEngine!
-    var playerTapNode:AVAudioPlayerNode!
-    var playerNode:AVAudioPlayerNode!
-    var mixer:AVAudioMixerNode!
-    var audioFile:AVAudioFile!
-    
-    func initAudioEngine () {
-        engine = AVAudioEngine()
-        playerNode = AVAudioPlayerNode()
-        playerTapNode = AVAudioPlayerNode()
-        engine.attach(playerNode)
-        engine.attach(playerTapNode)
-        mixer = engine.mainMixerNode
-        // engine.connect(playerNode, to: mixer, format: mixer.outputFormatForBus(0))
-        //        engine.connect(playerNode, to: engine.mainMixerNode, format: mixer.outputFormatForBus(0))
-        
-        mixer.outputVolume = 1.0
-        mixer.pan = 0.0 // -1 to +1
-        let iformat = engine.inputNode?.inputFormat(forBus: 0)
-        print("input format \(iformat)")
-        
-        do {
-            try engine.start()
-        } catch {
-            print("error \(error.localizedDescription)")
-        }
-        
-        NotificationCenter.default.addObserver(self,
-                                               selector:#selector(MessageViewController.configChange(_:)),
-                                               name:NSNotification.Name.AVAudioEngineConfigurationChange,
-                                               object:engine)
-        
-        let format = mixer.outputFormat(forBus: 0)
-        //engine.connect(playerNode, to: mixer, format: format)
-        
-        engine.connect(playerNode, to: reverbNode, format: format)
-        // tapMixer()
-    }
-    
-    func bounceEngine() {
-        if engine.isRunning {
-            engine.stop()
-        } else {
-            do {
-                try engine.start()
-            } catch {
-                print("error \(error.localizedDescription)")
-            }
-            
-        }
-    }
-    
-    func engineStart() {
-        do {
-            try engine.start()
-        } catch {
-            print("error \(error.localizedDescription)")
-        }
-    }
-
-    func configChange(_ notification:Notification) {
-        print("config change")
-    }
-    
-    var reverbNode:AVAudioUnitReverb!
-    func reverb() {
-        reverbNode = AVAudioUnitReverb()
-        reverbNode.loadFactoryPreset(.cathedral)
-        engine.attach(reverbNode)
-        //The blend is specified as a percentage. The range is 0% (all dry) through 100% (all wet).
-        reverbNode.wetDryMix = 0.0
-        // engine.connect(playerNode, to: reverbNode, format: mixer.outputFormatForBus(0))
-        // engine.connect(reverbNode, to: mixer, format: mixer.outputFormatForBus(0))
-    }
-    
-    func tapInput() {
-        let audioInputNode = engine.inputNode
-        let frameLength:AVAudioFrameCount = 128
-        audioInputNode?.installTap(onBus: 0, bufferSize:frameLength, format: audioInputNode?.outputFormat(forBus: 0), block: {(buffer, time) in
-            for channelIndex in 0 ..< Int(buffer.format.channelCount) {
-                var data = buffer.floatChannelData?[channelIndex]
-                for frameIndex in 0 ..< Int(buffer.frameLength) {
-                    // data[frameIndex] = blah blah
-                    self.playerTapNode.scheduleBuffer(buffer, at: nil, options: [], completionHandler: nil)
-                }
-            }
-        })
-    }
-    
-    func recordInputNodeToFile() {
-        let filename = "testrecord.wav"
-        let docsDir = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)[0] as NSString
-        let path = docsDir.appendingPathComponent(filename)
-        let url = URL(fileURLWithPath: path)
-        
-        let settings = [
-            AVFormatIDKey: kAudioFormatLinearPCM,
-            AVSampleRateKey: 44100.0,
-            AVNumberOfChannelsKey: 1 ] as [String : Any]
-        
-        do {
-            audioFile = try AVAudioFile(forWriting: url, settings: settings)
-        } catch {
-            print("error \(error.localizedDescription)")
-            
-        }
-        
-        
-        let input = engine.inputNode
-        input?.installTap(onBus: 0, bufferSize: 4096, format: audioFile.processingFormat) {
-            (buffer : AVAudioPCMBuffer!, when : AVAudioTime!) in
-            //print("Got buffer of length: \(buffer.frameLength) at time: \(when)")
-            
-            do {
-                try self.audioFile.write(from: buffer)
-            } catch {
-                print("error \(error.localizedDescription)")
-                
-            }
-            
-        }
-        
-        print("starting audio engine for recording")
-        print("writing to \(path)")
-        do {
-            try engine.start()
-        } catch {
-            print("Error starting audio engine: \(error.localizedDescription)")
-        }
-        
-        
-    }
-    func stopRecording() {
-        self.engine.inputNode?.removeTap(onBus: 0)
-        self.engine.stop()
-    }
-    
-    
-    func setSessionPlayAndRecord() {
-        let session:AVAudioSession = AVAudioSession.sharedInstance()
-        
-        do {
-            try session.setCategory(AVAudioSessionCategoryPlayAndRecord)
-        } catch{
-            print("could not set session category")
-            print("error \(error.localizedDescription)")
-            
-        }
-        do {
-            try session.setActive(true)
-        } catch{
-            print("could not make session active")
-            print("error \(error.localizedDescription)")
-            
-        }
-        
-    }
-    
-    func setSessionRecord() {
-        let session = AVAudioSession.sharedInstance()
-        do {
-            try session.setCategory(AVAudioSessionCategoryRecord)
-        } catch{
-            print("could not set session category")
-            print("error \(error.localizedDescription)")
-            
-        }
-        do {
-            try session.setActive(true)
-        } catch{
-            print("could not make session active")
-            print("error \(error.localizedDescription)")
-            
-        }
-    }
-    
-    /**
-     Uses an AVAudioPlayerNode to play an audio file.
-     */
-    func playerNodePlay() {
-        if engine.isRunning {
-            print("engine is running")
-            engine.disconnectNodeOutput(engine.inputNode!)
-            engine.connect(playerNode, to: reverbNode, format: mixer.outputFormat(forBus: 0))
-            playerNode.play()
-        } else {
-            
-            do {
-                try engine.start()
-            } catch {
-                print("error couldn't start engine")
-                print("error \(error.localizedDescription)")
-                
-            }
-            playerNode.play()
-            
-        }
-    }
-    
-    
-    /**
-     Taps the mixer output and shoves it into the playerTapNode for later playback.
-     */
-    func tapMixer() {
-        let frameLength:AVAudioFrameCount = 4096
-        
-        let format = mixer.outputFormat(forBus: 0)
-        mixer.installTap(onBus: 0, bufferSize:frameLength, format: format, block:
-            {(buffer:AVAudioPCMBuffer!, time:AVAudioTime!) in
-                //                print("got a mixer buffer \(time)")
-                //                print("got a mixer buffer bc \(buffer.format.channelCount)")
-                //                print("got a mixer buffer fc \(format.channelCount)")
-                self.playerTapNode.scheduleBuffer(buffer, at: nil, options: [], completionHandler: nil)
-        })
-    }
-    
-    
 }
-
-
