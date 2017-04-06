@@ -182,8 +182,9 @@ class MessageViewController: UIViewController , AVSpeechSynthesizerDelegate, AVA
             fileSize = attr[FileAttributeKey.size] as! UInt64
             fraseAudio.text = langVoices[6] + " : " + String(Int(fileSize/1024)) + " Kb.";
             if (Int(fileSize/1024)>15){
-                var controller = UIDocumentInteractionController()
-                if UIApplication.shared.canOpenURL(NSURL(string:"whatsapp://app")! as URL) {
+                var controller = UIDocumentInteractionController();
+                let url = NSURL (string: "whatsapp://send?text=Hello%2C%20World!");
+                if UIApplication.shared.canOpenURL(url! as URL) {
                     controller = UIDocumentInteractionController(url: soundFileURL)
                     controller.uti = "net.whatsapp.audio"
                     controller.presentOpenInMenu(from: CGRect.zero, in: self.view, animated: true)
@@ -273,8 +274,8 @@ class MessageViewController: UIViewController , AVSpeechSynthesizerDelegate, AVA
         let audioSession = AVAudioSession.sharedInstance()
         
         do {
-            try AVAudioSession.sharedInstance().overrideOutputAudioPort(AVAudioSessionPortOverride.speaker);
             try audioSession.setCategory(AVAudioSessionCategoryPlayAndRecord);
+            try audioSession.overrideOutputAudioPort(AVAudioSessionPortOverride.speaker);
             try audioSession.setInputGain(Float (0));
         } catch {
             print("Error: \(error)")

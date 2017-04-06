@@ -54,11 +54,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WhatsAudio/MessageViewController.swift"
-            timestampString = "512615470.617023"
+            timestampString = "513173805.414042"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "434"
-            endingLineNumber = "434">
+            startingLineNumber = "437"
+            endingLineNumber = "437">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -68,11 +68,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WhatsAudio/MessageViewController.swift"
-            timestampString = "512615470.617023"
+            timestampString = "513173805.414042"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "435"
-            endingLineNumber = "435">
+            startingLineNumber = "438"
+            endingLineNumber = "438">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -82,11 +82,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WhatsAudio/MessageViewController.swift"
-            timestampString = "512615470.617023"
+            timestampString = "513173805.414042"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "636"
-            endingLineNumber = "636">
+            startingLineNumber = "639"
+            endingLineNumber = "639">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -112,11 +112,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WhatsAudio/MessageViewController.swift"
-            timestampString = "512615470.617023"
+            timestampString = "513173805.414042"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "964"
-            endingLineNumber = "964">
+            startingLineNumber = "967"
+            endingLineNumber = "967">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -126,11 +126,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WhatsAudio/MessageViewController.swift"
-            timestampString = "512615470.617023"
+            timestampString = "513173805.414042"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "964"
-            endingLineNumber = "964">
+            startingLineNumber = "967"
+            endingLineNumber = "967">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -140,12 +140,60 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WhatsAudio/MessageViewController.swift"
-            timestampString = "512569319.0841"
+            timestampString = "513173805.414042"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "235"
-            endingLineNumber = "235"
+            startingLineNumber = "238"
+            endingLineNumber = "238"
             landmarkName = "audioRecordSetup()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WhatsAudio/MessageViewController.swift"
+            timestampString = "513134788.632937"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "183"
+            endingLineNumber = "183"
+            landmarkName = "sendAudio()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WhatsAudio/MessageViewController.swift"
+            timestampString = "513134837.927001"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "160"
+            endingLineNumber = "160"
+            landmarkName = "open(scheme:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WhatsAudio/MessageViewController.swift"
+            timestampString = "513173805.414042"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "188"
+            endingLineNumber = "188"
+            landmarkName = "sendAudio()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
