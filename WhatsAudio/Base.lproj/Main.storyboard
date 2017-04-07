@@ -24,6 +24,10 @@
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="3Bx-Qr-iZ3">
                                 <rect key="frame" x="16" y="272.5" width="288" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="288" id="NFe-Ax-m2P"/>
+                                    <constraint firstAttribute="height" constant="30" id="eYU-0R-8aB"/>
+                                </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="yes" enablesReturnKeyAutomatically="YES"/>
@@ -42,20 +46,6 @@
                                 </state>
                                 <connections>
                                     <action selector="botonProbar:" destination="BYZ-38-t0r" eventType="touchUpInside" id="OOI-4m-1gA"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u7p-rN-9Bp">
-                                <rect key="frame" x="114" y="504" width="92" height="44"/>
-                                <color key="backgroundColor" red="0.35611914541721107" green="0.79063957657305717" blue="0.20593766833573332" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="92" id="rdV-o4-k2I"/>
-                                    <constraint firstAttribute="height" constant="44" id="tlg-6r-fck"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
-                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Configurar"/>
-                                <connections>
-                                    <action selector="botonConfigurar:" destination="BYZ-38-t0r" eventType="touchUpInside" id="p8L-m5-NM4"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JDF-bM-qi5">
@@ -88,38 +78,58 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Audio Grabado : 0 Kb." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ubz-fu-Nie">
-                                <rect key="frame" x="90.5" y="414.5" width="139" height="17"/>
+                                <rect key="frame" x="90.5" y="219" width="139" height="17"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="13"/>
                                 <color key="textColor" red="0.97804109382244775" green="0.97670762523437715" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zME-cx-yGG" colorLabel="IBBuiltInLabel-Orange">
+                                <rect key="frame" x="-27.5" y="439" width="375" height="121"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="121" id="efn-Gd-e3X"/>
+                                    <constraint firstAttribute="width" constant="375" id="z4t-RQ-jT6"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="klT-xy-nLY"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="Gmc-N2-Vdt"/>
+                                </connections>
+                            </pickerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Speak Language" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2J7-OP-HoQ">
+                                <rect key="frame" x="96" y="410" width="128" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="0.36742442954995991" green="0.83692586420000004" blue="0.19724379617433496" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="dFB-Qu-O92" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" constant="1" id="0Ou-Pd-RcE"/>
+                            <constraint firstItem="3Bx-Qr-iZ3" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="1sU-2g-hym"/>
+                            <constraint firstItem="2J7-OP-HoQ" firstAttribute="top" secondItem="Ubz-fu-Nie" secondAttribute="bottom" constant="174" id="5dW-Pt-60F"/>
                             <constraint firstItem="dFB-Qu-O92" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="35" id="7l4-iU-esZ"/>
                             <constraint firstItem="Ubz-fu-Nie" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="BMh-xq-xx2"/>
                             <constraint firstItem="3Bx-Qr-iZ3" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="3.5" id="Cyi-5l-9pC"/>
                             <constraint firstItem="3Bx-Qr-iZ3" firstAttribute="top" secondItem="BPG-No-lkD" secondAttribute="bottom" constant="81" id="DWt-GP-M9r"/>
                             <constraint firstItem="JDF-bM-qi5" firstAttribute="top" secondItem="3Bx-Qr-iZ3" secondAttribute="bottom" constant="37" id="HeD-qs-zGc"/>
-                            <constraint firstItem="u7p-rN-9Bp" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="MhS-nQ-Yif"/>
+                            <constraint firstItem="2J7-OP-HoQ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="QZ4-oN-C41"/>
+                            <constraint firstItem="BPG-No-lkD" firstAttribute="top" secondItem="dFB-Qu-O92" secondAttribute="bottom" constant="18.5" id="T0q-0f-PqP"/>
                             <constraint firstItem="BPG-No-lkD" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="UGQ-28-uj7"/>
+                            <constraint firstItem="zME-cx-yGG" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="c4h-cN-lg2"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="zME-cx-yGG" secondAttribute="bottom" constant="8" id="iLw-3S-N3e"/>
                             <constraint firstItem="dFB-Qu-O92" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="1" id="lKb-6P-hIa"/>
-                            <constraint firstItem="Ubz-fu-Nie" firstAttribute="top" secondItem="3Bx-Qr-iZ3" secondAttribute="bottom" constant="112" id="mlt-Vy-pD3"/>
-                            <constraint firstItem="3Bx-Qr-iZ3" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="nFN-jU-r2M"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="u7p-rN-9Bp" secondAttribute="bottom" constant="20" id="psc-D6-pBx"/>
+                            <constraint firstItem="zME-cx-yGG" firstAttribute="top" secondItem="2J7-OP-HoQ" secondAttribute="bottom" constant="8" id="q87-hC-gew"/>
                             <constraint firstItem="fK4-fY-Rfo" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="-52.5" id="qzc-Pl-syt"/>
+                            <constraint firstItem="3Bx-Qr-iZ3" firstAttribute="top" secondItem="Ubz-fu-Nie" secondAttribute="bottom" constant="36.5" id="rqW-e6-Kzn"/>
                             <constraint firstItem="JDF-bM-qi5" firstAttribute="leading" secondItem="fK4-fY-Rfo" secondAttribute="trailing" constant="25.5" id="tWf-Ur-vM8"/>
                             <constraint firstItem="fK4-fY-Rfo" firstAttribute="top" secondItem="3Bx-Qr-iZ3" secondAttribute="bottom" constant="37" id="vfv-12-WM4"/>
-                            <constraint firstItem="3Bx-Qr-iZ3" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="zM4-NJ-nzR"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="btnConfigurar" destination="u7p-rN-9Bp" id="oA5-sa-SuQ"/>
                         <outlet property="btnEnviar" destination="JDF-bM-qi5" id="4Wu-lw-BlF"/>
                         <outlet property="btnReproducir" destination="fK4-fY-Rfo" id="EAn-c2-HPZ"/>
                         <outlet property="fraseAudio" destination="Ubz-fu-Nie" id="cNY-Tw-lpc"/>
                         <outlet property="fraseText" destination="3Bx-Qr-iZ3" id="Y4l-jj-7GY"/>
+                        <outlet property="langickerView" destination="zME-cx-yGG" id="itw-GS-E7S"/>
                         <outlet property="lblSavedAudio" destination="Ubz-fu-Nie" id="BTv-1Z-n2l"/>
                         <segue destination="k9m-XH-cn1" kind="presentation" identifier="configurar" id="byT-MS-Rag"/>
                     </connections>

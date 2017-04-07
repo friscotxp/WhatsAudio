@@ -16,7 +16,7 @@ import AudioToolbox
 var audioPlayer: AVAudioPlayer?
 var audioRecorder: AVAudioRecorder?
 
-class MessageViewController: UIViewController , AVSpeechSynthesizerDelegate, AVAudioRecorderDelegate, UITextFieldDelegate {
+class MessageViewController: UIViewController , UIPickerViewDelegate, UIPickerViewDataSource, AVSpeechSynthesizerDelegate, AVAudioRecorderDelegate, UITextFieldDelegate {
     let speechSynthesizer = AVSpeechSynthesizer();
     let audioSession = AVAudioSession.sharedInstance()
     var hablar = true;
@@ -56,11 +56,17 @@ class MessageViewController: UIViewController , AVSpeechSynthesizerDelegate, AVA
     
     var langVoices = ["","",""];
     
+    var languages = ["Arabic Maged", "Czech Zuzana", "Danish Sara", "Dutch Anna", "Greek Melina", "English Karen", "English Daniel", "English Moira", "English Samantha", "English Tessa", "Spanish Monica", "Spanish Paulina", "Finnish Satu", "French Amelie", "French Thomas", "Hebrew Carmit","Hindi Lekha", "Hungarian Mariska", "Indonesian Damayanti", "Italian Alice", "Japanese Kyoko","Korean Yuna", "Dutch Ellen", "Dutch Xander", "Norwegian Nora", "Polish Zosia", "Portuguese Luciana", "Portuguese Joana","Romanian Ioana", "Russian Milena","Slovak Laura","Swedish Alva", "Thai Kanya", "Turkish Yelda", "Chinese Ting-Ting", "Chinese Sin-Ji","Chinese Mei-Jia"]
+    
+    var langCode = ["ar-SA","cs-CZ","da-DK","de-DE","el-GR","en-AU","en-GB","en-IE","en-US","en-ZA","es-ES","es-MX","fi-FI","fr-CA","fr-FR","he-IL","hi-IN","hu-HU","id-ID","it-IT","ja-JP","ko-KR","nl-BE","nl-NL","no-NO","pl-PL","pt-BR","pt-PT","ro-RO","ru-RU","sk-SK","sv-SE","th-TH","tr-TR","zh-CN","zh-HK","zh-TW"]
+    
+
+    @IBOutlet weak var langickerView: UIPickerView!
     @IBOutlet weak var fraseText: UITextField!
     @IBOutlet weak var fraseAudio: UILabel!
     @IBOutlet weak var btnReproducir: UIButton!
     @IBOutlet weak var btnEnviar: UIButton!
-    @IBOutlet weak var btnConfigurar: UIButton!
+    //@IBOutlet weak var btnConfigurar: UIButton!
     @IBOutlet weak var lblSavedAudio: UILabel!
     
     override func viewDidLoad() {
@@ -104,9 +110,44 @@ class MessageViewController: UIViewController , AVSpeechSynthesizerDelegate, AVA
         
         btnReproducir.setTitle(langLabels[0], for: .normal);
         btnEnviar.setTitle(langLabels[1], for: .normal);
-        btnConfigurar.setTitle(langLabels[2], for: .normal);
+        //btnConfigurar.setTitle(langLabels[2], for: .normal);
         lblSavedAudio.text = langVoices[6] + " : 0 Kb.";
         
+        langickerView.dataSource = self
+        langickerView.delegate = self
+        var idx = langCode.index(of: language);
+        if (idx != nil &&  idx!>0){
+            langickerView.selectRow(langCode.index(of: language)!, inComponent: 0, animated: true)
+        }else{
+            languages.append("Other ["+language+"]");
+            langCode.append(language);
+            idx = langCode.index(of: language);
+            langickerView.selectRow(langCode.index(of: language)!, inComponent: 0, animated: true)
+        }
+    }
+    
+    // DataSource
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return languages.count
+    }
+    
+    // Delegate
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return languages[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        speechSynthesizer.stopSpeaking(at: .immediate);
+        language = langCode[row];
+        if (fraseText.text == ""){
+            speakString(phrase:  langVoices[0]);
+        }else{
+            speakString(phrase: fraseText.text!);
+        }
     }
     
     @IBAction func deleteText(_ sender: UIButton) {
@@ -220,8 +261,9 @@ class MessageViewController: UIViewController , AVSpeechSynthesizerDelegate, AVA
         speechSynthesizer.stopSpeaking(at: .immediate);
         speakString(phrase: langVoices[5]);
         //self.performSegue(withIdentifier: "configurar", sender: sender)
-        
         mensaje = fraseText.text!;
+        
+        /*
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let configViewController = storyboard.instantiateViewController(withIdentifier: "config") as! ConfigViewController;
         configViewController.pitch = pitch;
@@ -230,6 +272,7 @@ class MessageViewController: UIViewController , AVSpeechSynthesizerDelegate, AVA
         configViewController.language = language;
         configViewController.mensaje = mensaje;
         self.present(configViewController, animated: true, completion: nil)
+         */
     }
     
     func audioRecordSetup(){
