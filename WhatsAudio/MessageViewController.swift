@@ -64,7 +64,7 @@ class MessageViewController: UIViewController , UIPickerViewDelegate, UIPickerVi
     @IBOutlet weak var langickerView: UIPickerView!
     @IBOutlet weak var fraseText: UITextField!
     @IBOutlet weak var fraseAudio: UILabel!
-    @IBOutlet weak var btnReproducir: UIButton!
+    //@IBOutlet weak var btnReproducir: UIButton!
     @IBOutlet weak var btnEnviar: UIButton!
     //@IBOutlet weak var btnConfigurar: UIButton!
     @IBOutlet weak var lblSavedAudio: UILabel!
@@ -108,7 +108,7 @@ class MessageViewController: UIViewController , UIPickerViewDelegate, UIPickerVi
             langLabels = enLabels
         }
         
-        btnReproducir.setTitle(langLabels[0], for: .normal);
+        //btnReproducir.setTitle(langLabels[0], for: .normal);
         btnEnviar.setTitle(langLabels[1], for: .normal);
         //btnConfigurar.setTitle(langLabels[2], for: .normal);
         lblSavedAudio.text = langVoices[6] + " : 0 Kb.";
@@ -138,6 +138,16 @@ class MessageViewController: UIViewController , UIPickerViewDelegate, UIPickerVi
     // Delegate
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return languages[row]
+    }
+    
+    @IBAction func fraseTextPrimariAction(_ sender: Any) {
+        sendMessage = false;
+        speakString(phrase: fraseText.text!);
+    }
+    
+    @IBAction func fraseTextEditEnd(_ sender: Any) {
+        //sendMessage = false;
+        //speakString(phrase: fraseText.text!);
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
@@ -382,8 +392,8 @@ class MessageViewController: UIViewController , UIPickerViewDelegate, UIPickerVi
     }
     
     func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didStart utterance: AVSpeechUtterance) {
-        btnReproducir.isEnabled = false;
-        btnReproducir.setTitleColor(UIColor.gray, for: UIControlState.disabled);
+        //btnReproducir.isEnabled = false;
+        //btnReproducir.setTitleColor(UIColor.gray, for: UIControlState.disabled);
         btnEnviar.isEnabled = false;
         btnEnviar.setTitleColor(UIColor.gray, for: UIControlState.disabled);
 //      btnConfigurar.isEnabled = false;
@@ -397,8 +407,8 @@ class MessageViewController: UIViewController , UIPickerViewDelegate, UIPickerVi
             self.sendAudio();
         }
         self.sendMessage = false;
-        btnReproducir.isEnabled = true;
-        btnReproducir.setTitleColor(UIColor.white, for: UIControlState.disabled);
+        //btnReproducir.isEnabled = true;
+        //btnReproducir.setTitleColor(UIColor.white, for: UIControlState.disabled);
         btnEnviar.isEnabled = true;
         btnEnviar.setTitleColor(UIColor.white, for: UIControlState.normal);
 //      btnConfigurar.isEnabled = true;

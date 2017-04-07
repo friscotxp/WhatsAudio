@@ -31,22 +31,11 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="yes" enablesReturnKeyAutomatically="YES"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fK4-fY-Rfo">
-                                <rect key="frame" x="37" y="315" width="96" height="45"/>
-                                <color key="backgroundColor" red="0.35715919730000001" green="0.79367560150000005" blue="0.2085959017" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="45" id="Rkq-GY-DeB"/>
-                                    <constraint firstAttribute="width" constant="96" id="nBO-F1-ZxT"/>
-                                </constraints>
-                                <color key="tintColor" red="0.37964355950000001" green="0.83692586420000004" blue="0.2022241652" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Reproducir">
-                                    <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                </state>
                                 <connections>
-                                    <action selector="botonProbar:" destination="BYZ-38-t0r" eventType="touchUpInside" id="OOI-4m-1gA"/>
+                                    <action selector="fraseTextEditEnd:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="Lc8-P5-a0A"/>
+                                    <action selector="fraseTextPrimariAction:" destination="BYZ-38-t0r" eventType="primaryActionTriggered" id="MGO-PO-E2Z"/>
                                 </connections>
-                            </button>
+                            </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WhatsAudio" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dFB-Qu-O92">
                                 <rect key="frame" x="17" y="55" width="288" height="37"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="28"/>
@@ -67,13 +56,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Speak Language" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2J7-OP-HoQ">
-                                <rect key="frame" x="92" y="385" width="136" height="20.5"/>
+                                <rect key="frame" x="92" y="317" width="136" height="20.5"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <color key="textColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zME-cx-yGG" colorLabel="IBBuiltInLabel-Orange">
-                                <rect key="frame" x="-27.5" y="413.5" width="375" height="121"/>
+                                <rect key="frame" x="-27" y="345" width="375" height="121"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="121" id="efn-Gd-e3X"/>
                                     <constraint firstAttribute="width" constant="375" id="z4t-RQ-jT6"/>
@@ -84,7 +73,7 @@
                                 </connections>
                             </pickerView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JDF-bM-qi5">
-                                <rect key="frame" x="185" y="315" width="96" height="45"/>
+                                <rect key="frame" x="112" y="481" width="96" height="45"/>
                                 <color key="backgroundColor" red="0.35715919730000001" green="0.79367560150000005" blue="0.2085959017" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="DYC-Xo-Wzb"/>
@@ -103,27 +92,24 @@
                         <constraints>
                             <constraint firstItem="dFB-Qu-O92" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" constant="1" id="0Ou-Pd-RcE"/>
                             <constraint firstItem="3Bx-Qr-iZ3" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="1sU-2g-hym"/>
-                            <constraint firstItem="zME-cx-yGG" firstAttribute="top" secondItem="2J7-OP-HoQ" secondAttribute="bottom" constant="8" id="4zr-r0-Th9"/>
-                            <constraint firstItem="2J7-OP-HoQ" firstAttribute="top" secondItem="JDF-bM-qi5" secondAttribute="bottom" constant="25" id="5Cv-X9-YLs"/>
+                            <constraint firstItem="JDF-bM-qi5" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="5DV-Ya-yJA"/>
                             <constraint firstItem="dFB-Qu-O92" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="35" id="7l4-iU-esZ"/>
                             <constraint firstItem="Ubz-fu-Nie" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="BMh-xq-xx2"/>
                             <constraint firstItem="3Bx-Qr-iZ3" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="3.5" id="Cyi-5l-9pC"/>
                             <constraint firstItem="3Bx-Qr-iZ3" firstAttribute="top" secondItem="BPG-No-lkD" secondAttribute="bottom" constant="81" id="DWt-GP-M9r"/>
-                            <constraint firstItem="fK4-fY-Rfo" firstAttribute="top" secondItem="3Bx-Qr-iZ3" secondAttribute="bottom" constant="12.5" id="IJ3-Tg-Z0q"/>
-                            <constraint firstItem="2J7-OP-HoQ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="QZ4-oN-C41"/>
-                            <constraint firstItem="JDF-bM-qi5" firstAttribute="leading" secondItem="fK4-fY-Rfo" secondAttribute="trailing" constant="52" id="SUJ-Ow-Oqx"/>
+                            <constraint firstItem="zME-cx-yGG" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="KWw-kB-7CL"/>
+                            <constraint firstItem="zME-cx-yGG" firstAttribute="top" secondItem="2J7-OP-HoQ" secondAttribute="bottom" constant="7.5" id="QVp-fw-KdT"/>
                             <constraint firstItem="BPG-No-lkD" firstAttribute="top" secondItem="dFB-Qu-O92" secondAttribute="bottom" constant="18.5" id="T0q-0f-PqP"/>
                             <constraint firstItem="BPG-No-lkD" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="UGQ-28-uj7"/>
-                            <constraint firstItem="zME-cx-yGG" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="c4h-cN-lg2"/>
-                            <constraint firstItem="JDF-bM-qi5" firstAttribute="top" secondItem="3Bx-Qr-iZ3" secondAttribute="bottom" constant="12.5" id="irq-W2-9ya"/>
+                            <constraint firstItem="2J7-OP-HoQ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="eGC-hY-SHV"/>
+                            <constraint firstItem="JDF-bM-qi5" firstAttribute="top" secondItem="zME-cx-yGG" secondAttribute="bottom" constant="15" id="eS9-87-ylB"/>
                             <constraint firstItem="dFB-Qu-O92" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="1" id="lKb-6P-hIa"/>
                             <constraint firstItem="3Bx-Qr-iZ3" firstAttribute="top" secondItem="Ubz-fu-Nie" secondAttribute="bottom" constant="36.5" id="rqW-e6-Kzn"/>
-                            <constraint firstItem="fK4-fY-Rfo" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="-75" id="sqy-bf-8Lu"/>
+                            <constraint firstItem="2J7-OP-HoQ" firstAttribute="top" secondItem="3Bx-Qr-iZ3" secondAttribute="bottom" constant="14.5" id="vbt-dw-ixd"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="btnEnviar" destination="JDF-bM-qi5" id="4Wu-lw-BlF"/>
-                        <outlet property="btnReproducir" destination="fK4-fY-Rfo" id="EAn-c2-HPZ"/>
                         <outlet property="fraseAudio" destination="Ubz-fu-Nie" id="cNY-Tw-lpc"/>
                         <outlet property="fraseText" destination="3Bx-Qr-iZ3" id="Y4l-jj-7GY"/>
                         <outlet property="langickerView" destination="zME-cx-yGG" id="itw-GS-E7S"/>
