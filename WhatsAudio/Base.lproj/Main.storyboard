@@ -32,36 +32,19 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="yes" enablesReturnKeyAutomatically="YES"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fK4-fY-Rfo">
-                                <rect key="frame" x="61.5" y="339.5" width="92" height="44"/>
-                                <color key="backgroundColor" red="0.35715919733047485" green="0.79367560148239136" blue="0.20859590172767639" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fK4-fY-Rfo">
+                                <rect key="frame" x="37" y="315" width="96" height="45"/>
+                                <color key="backgroundColor" red="0.35715919730000001" green="0.79367560150000005" blue="0.2085959017" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="Rkq-GY-DeB"/>
-                                    <constraint firstAttribute="width" constant="92" id="nBO-F1-ZxT"/>
+                                    <constraint firstAttribute="height" constant="45" id="Rkq-GY-DeB"/>
+                                    <constraint firstAttribute="width" constant="96" id="nBO-F1-ZxT"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
                                 <color key="tintColor" red="0.37964355950000001" green="0.83692586420000004" blue="0.2022241652" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Reproducir">
                                     <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 </state>
                                 <connections>
                                     <action selector="botonProbar:" destination="BYZ-38-t0r" eventType="touchUpInside" id="OOI-4m-1gA"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JDF-bM-qi5">
-                                <rect key="frame" x="179.5" y="339.5" width="92" height="44"/>
-                                <color key="backgroundColor" red="0.39412926004787052" green="0.87230022970189902" blue="0.21268936640122205" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="DYC-Xo-Wzb"/>
-                                    <constraint firstAttribute="width" constant="92" id="F7X-cK-Vlj"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
-                                <color key="tintColor" red="0.37964355950000001" green="0.83692586420000004" blue="0.2022241652" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Enviar">
-                                    <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                </state>
-                                <connections>
-                                    <action selector="botonEnviarWhatsapp:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bdR-ig-Qpm"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WhatsAudio" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dFB-Qu-O92">
@@ -78,13 +61,19 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Audio Grabado : 0 Kb." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ubz-fu-Nie">
-                                <rect key="frame" x="90.5" y="219" width="139" height="17"/>
-                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="13"/>
+                                <rect key="frame" x="80.5" y="219" width="159" height="17"/>
+                                <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="13"/>
                                 <color key="textColor" red="0.97804109382244775" green="0.97670762523437715" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Speak Language" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2J7-OP-HoQ">
+                                <rect key="frame" x="92" y="368" width="136" height="20.5"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="textColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zME-cx-yGG" colorLabel="IBBuiltInLabel-Orange">
-                                <rect key="frame" x="-27.5" y="439" width="375" height="121"/>
+                                <rect key="frame" x="-27.5" y="396.5" width="375" height="121"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="121" id="efn-Gd-e3X"/>
                                     <constraint firstAttribute="width" constant="375" id="z4t-RQ-jT6"/>
@@ -94,34 +83,42 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="Gmc-N2-Vdt"/>
                                 </connections>
                             </pickerView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Speak Language" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2J7-OP-HoQ">
-                                <rect key="frame" x="96" y="410" width="128" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JDF-bM-qi5">
+                                <rect key="frame" x="185" y="315" width="96" height="45"/>
+                                <color key="backgroundColor" red="0.35715919730000001" green="0.79367560150000005" blue="0.2085959017" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="DYC-Xo-Wzb"/>
+                                    <constraint firstAttribute="width" constant="96" id="F7X-cK-Vlj"/>
+                                </constraints>
+                                <color key="tintColor" red="0.37964355950000001" green="0.83692586420000004" blue="0.2022241652" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Enviar">
+                                    <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="botonEnviarWhatsapp:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bdR-ig-Qpm"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.36742442954995991" green="0.83692586420000004" blue="0.19724379617433496" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="dFB-Qu-O92" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" constant="1" id="0Ou-Pd-RcE"/>
                             <constraint firstItem="3Bx-Qr-iZ3" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="1sU-2g-hym"/>
-                            <constraint firstItem="2J7-OP-HoQ" firstAttribute="top" secondItem="Ubz-fu-Nie" secondAttribute="bottom" constant="174" id="5dW-Pt-60F"/>
+                            <constraint firstItem="zME-cx-yGG" firstAttribute="top" secondItem="2J7-OP-HoQ" secondAttribute="bottom" constant="8" id="4zr-r0-Th9"/>
+                            <constraint firstItem="2J7-OP-HoQ" firstAttribute="top" secondItem="JDF-bM-qi5" secondAttribute="bottom" constant="8" id="5Cv-X9-YLs"/>
                             <constraint firstItem="dFB-Qu-O92" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="35" id="7l4-iU-esZ"/>
                             <constraint firstItem="Ubz-fu-Nie" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="BMh-xq-xx2"/>
                             <constraint firstItem="3Bx-Qr-iZ3" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="3.5" id="Cyi-5l-9pC"/>
                             <constraint firstItem="3Bx-Qr-iZ3" firstAttribute="top" secondItem="BPG-No-lkD" secondAttribute="bottom" constant="81" id="DWt-GP-M9r"/>
-                            <constraint firstItem="JDF-bM-qi5" firstAttribute="top" secondItem="3Bx-Qr-iZ3" secondAttribute="bottom" constant="37" id="HeD-qs-zGc"/>
+                            <constraint firstItem="fK4-fY-Rfo" firstAttribute="top" secondItem="3Bx-Qr-iZ3" secondAttribute="bottom" constant="12.5" id="IJ3-Tg-Z0q"/>
                             <constraint firstItem="2J7-OP-HoQ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="QZ4-oN-C41"/>
+                            <constraint firstItem="JDF-bM-qi5" firstAttribute="leading" secondItem="fK4-fY-Rfo" secondAttribute="trailing" constant="52" id="SUJ-Ow-Oqx"/>
                             <constraint firstItem="BPG-No-lkD" firstAttribute="top" secondItem="dFB-Qu-O92" secondAttribute="bottom" constant="18.5" id="T0q-0f-PqP"/>
                             <constraint firstItem="BPG-No-lkD" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="UGQ-28-uj7"/>
                             <constraint firstItem="zME-cx-yGG" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="c4h-cN-lg2"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="zME-cx-yGG" secondAttribute="bottom" constant="8" id="iLw-3S-N3e"/>
+                            <constraint firstItem="JDF-bM-qi5" firstAttribute="top" secondItem="3Bx-Qr-iZ3" secondAttribute="bottom" constant="12.5" id="irq-W2-9ya"/>
                             <constraint firstItem="dFB-Qu-O92" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="1" id="lKb-6P-hIa"/>
-                            <constraint firstItem="zME-cx-yGG" firstAttribute="top" secondItem="2J7-OP-HoQ" secondAttribute="bottom" constant="8" id="q87-hC-gew"/>
-                            <constraint firstItem="fK4-fY-Rfo" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="-52.5" id="qzc-Pl-syt"/>
                             <constraint firstItem="3Bx-Qr-iZ3" firstAttribute="top" secondItem="Ubz-fu-Nie" secondAttribute="bottom" constant="36.5" id="rqW-e6-Kzn"/>
-                            <constraint firstItem="JDF-bM-qi5" firstAttribute="leading" secondItem="fK4-fY-Rfo" secondAttribute="trailing" constant="25.5" id="tWf-Ur-vM8"/>
-                            <constraint firstItem="fK4-fY-Rfo" firstAttribute="top" secondItem="3Bx-Qr-iZ3" secondAttribute="bottom" constant="37" id="vfv-12-WM4"/>
+                            <constraint firstItem="fK4-fY-Rfo" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="-75" id="sqy-bf-8Lu"/>
                         </constraints>
                     </view>
                     <connections>
