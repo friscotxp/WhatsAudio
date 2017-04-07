@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E191a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina4_0" orientation="portrait">
+    <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -19,11 +19,11 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="3Bx-Qr-iZ3">
-                                <rect key="frame" x="16" y="272.5" width="288" height="30"/>
+                                <rect key="frame" x="43.5" y="322" width="288" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="288" id="NFe-Ax-m2P"/>
                                     <constraint firstAttribute="height" constant="30" id="eYU-0R-8aB"/>
@@ -37,32 +37,32 @@
                                 </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WhatsAudio" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dFB-Qu-O92">
-                                <rect key="frame" x="17" y="55" width="288" height="37"/>
+                                <rect key="frame" x="17" y="55" width="343" height="86.5"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="28"/>
                                 <color key="textColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fondo.png" translatesAutoresizingMaskIntoConstraints="NO" id="BPG-No-lkD">
-                                <rect key="frame" x="129" y="110.5" width="62" height="81"/>
+                                <rect key="frame" x="156.5" y="160" width="62" height="81"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="81" id="OMR-fC-UKI"/>
                                     <constraint firstAttribute="width" constant="62" id="R9x-jd-i2g"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Audio Grabado : 0 Kb." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ubz-fu-Nie">
-                                <rect key="frame" x="80.5" y="219" width="159" height="17"/>
+                                <rect key="frame" x="108" y="268.5" width="159" height="17"/>
                                 <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="13"/>
                                 <color key="textColor" red="0.97804109382244775" green="0.97670762523437715" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Speak Language" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2J7-OP-HoQ">
-                                <rect key="frame" x="92" y="317" width="136" height="20.5"/>
+                                <rect key="frame" x="119.5" y="366.5" width="136" height="20.5"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <color key="textColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zME-cx-yGG" colorLabel="IBBuiltInLabel-Orange">
-                                <rect key="frame" x="-27" y="345" width="375" height="121"/>
+                                <rect key="frame" x="0.0" y="394.5" width="375" height="121"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="121" id="efn-Gd-e3X"/>
                                     <constraint firstAttribute="width" constant="375" id="z4t-RQ-jT6"/>
@@ -73,14 +73,13 @@
                                 </connections>
                             </pickerView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JDF-bM-qi5">
-                                <rect key="frame" x="112" y="481" width="96" height="45"/>
-                                <color key="backgroundColor" red="0.35715919730000001" green="0.79367560150000005" blue="0.2085959017" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <rect key="frame" x="107.5" y="515.5" width="160" height="90"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="45" id="DYC-Xo-Wzb"/>
-                                    <constraint firstAttribute="width" constant="96" id="F7X-cK-Vlj"/>
+                                    <constraint firstAttribute="height" constant="90" id="DYC-Xo-Wzb"/>
+                                    <constraint firstAttribute="width" constant="160" id="F7X-cK-Vlj"/>
                                 </constraints>
-                                <color key="tintColor" red="0.37964355950000001" green="0.83692586420000004" blue="0.2022241652" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Enviar">
+                                <color key="tintColor" red="0.99195677042007446" green="0.99622899293899536" blue="0.99192315340042114" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" image="play-button-overlay.png">
                                     <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 </state>
                                 <connections>
@@ -102,7 +101,7 @@
                             <constraint firstItem="BPG-No-lkD" firstAttribute="top" secondItem="dFB-Qu-O92" secondAttribute="bottom" constant="18.5" id="T0q-0f-PqP"/>
                             <constraint firstItem="BPG-No-lkD" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="UGQ-28-uj7"/>
                             <constraint firstItem="2J7-OP-HoQ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="eGC-hY-SHV"/>
-                            <constraint firstItem="JDF-bM-qi5" firstAttribute="top" secondItem="zME-cx-yGG" secondAttribute="bottom" constant="15" id="eS9-87-ylB"/>
+                            <constraint firstItem="JDF-bM-qi5" firstAttribute="top" secondItem="zME-cx-yGG" secondAttribute="bottom" id="eS9-87-ylB"/>
                             <constraint firstItem="dFB-Qu-O92" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="1" id="lKb-6P-hIa"/>
                             <constraint firstItem="3Bx-Qr-iZ3" firstAttribute="top" secondItem="Ubz-fu-Nie" secondAttribute="bottom" constant="36.5" id="rqW-e6-Kzn"/>
                             <constraint firstItem="2J7-OP-HoQ" firstAttribute="top" secondItem="3Bx-Qr-iZ3" secondAttribute="bottom" constant="14.5" id="vbt-dw-ixd"/>
@@ -130,11 +129,11 @@
                         <viewControllerLayoutGuide type="bottom" id="9Y8-cz-Edu"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="zA8-L2-QIB">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <slider contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.10000000000000001" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="uJ7-cI-Tow">
-                                <rect key="frame" x="24.5" y="221" width="271" height="31"/>
+                                <rect key="frame" x="52" y="221" width="271" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="GQ1-YC-FPr"/>
                                     <constraint firstAttribute="width" constant="267" id="x9U-0E-y0B"/>
@@ -146,19 +145,19 @@
                                 </connections>
                             </slider>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rate" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="voa-f0-lZN">
-                                <rect key="frame" x="139.5" y="191" width="35" height="21"/>
+                                <rect key="frame" x="167" y="191" width="35" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Configuración de WhatsAudio" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YiZ-wb-xhL">
-                                <rect key="frame" x="22" y="58" width="276" height="26"/>
+                                <rect key="frame" x="49.5" y="58" width="276" height="26"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="20"/>
                                 <color key="textColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <slider contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.5" maxValue="2" translatesAutoresizingMaskIntoConstraints="NO" id="NKS-oI-5JZ">
-                                <rect key="frame" x="20.5" y="145" width="271" height="31"/>
+                                <rect key="frame" x="48" y="145" width="271" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="267" id="ncL-hR-FPJ"/>
                                     <constraint firstAttribute="height" constant="30" id="z6w-kp-ie3"/>
@@ -170,13 +169,13 @@
                                 </connections>
                             </slider>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pitch" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cdI-Z9-cEw">
-                                <rect key="frame" x="136.5" y="123" width="39" height="21"/>
+                                <rect key="frame" x="164" y="123" width="39" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <slider contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.75" minValue="0.10000000000000001" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="vBL-wm-zpB">
-                                <rect key="frame" x="24.5" y="291" width="271" height="31"/>
+                                <rect key="frame" x="52" y="291" width="271" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="267" id="CW7-lj-kDU"/>
                                     <constraint firstAttribute="height" constant="30" id="diZ-z6-qbY"/>
@@ -188,19 +187,19 @@
                                 </connections>
                             </slider>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Volume" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XPa-8B-SKM">
-                                <rect key="frame" x="131" y="260" width="58" height="21"/>
+                                <rect key="frame" x="158.5" y="260" width="58" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Speak Language" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2kg-FI-hAS">
-                                <rect key="frame" x="96" y="329" width="128" height="21"/>
+                                <rect key="frame" x="123.5" y="329" width="128" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f7h-MP-jWN" colorLabel="IBBuiltInLabel-Orange">
-                                <rect key="frame" x="-27.5" y="374" width="375" height="121"/>
+                                <rect key="frame" x="0.0" y="374" width="375" height="121"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="121" id="Lnd-mR-xpO"/>
                                     <constraint firstAttribute="width" constant="375" id="jtJ-eW-4JH"/>
@@ -269,6 +268,7 @@
     </scenes>
     <resources>
         <image name="fondo.png" width="400" height="400"/>
+        <image name="play-button-overlay.png" width="320" height="180"/>
     </resources>
     <color key="tintColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
 </document>

@@ -15,6 +15,7 @@
 		324F539C1E1C55E200BC9F90 /* WhatsAudioTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324F539B1E1C55E200BC9F90 /* WhatsAudioTests.swift */; };
 		324F53A71E1C55E200BC9F90 /* WhatsAudioUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324F53A61E1C55E200BC9F90 /* WhatsAudioUITests.swift */; };
 		324F53B51E1C562B00BC9F90 /* ConfigViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324F53B41E1C562B00BC9F90 /* ConfigViewController.swift */; };
+		3267FB1E1E984006003A311D /* play-button-overlay.png in Resources */ = {isa = PBXBuildFile; fileRef = 3267FB1D1E984006003A311D /* play-button-overlay.png */; };
 		327390BB1E299CFE006A5B8D /* modem-dialing-02.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 327390B91E299CFE006A5B8D /* modem-dialing-02.mp3 */; };
 		327390BC1E299CFE006A5B8D /* modem-dialing-02.wav in Resources */ = {isa = PBXBuildFile; fileRef = 327390BA1E299CFE006A5B8D /* modem-dialing-02.wav */; };
 		328172041E2A99C900037713 /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 328172031E2A99C900037713 /* MessageViewController.swift */; };
@@ -53,6 +54,7 @@
 		324F53A81E1C55E200BC9F90 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		324F53B41E1C562B00BC9F90 /* ConfigViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigViewController.swift; sourceTree = "<group>"; };
 		326371841E1C73FE00B9D774 /* WhatsAudio.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WhatsAudio.entitlements; sourceTree = "<group>"; };
+		3267FB1D1E984006003A311D /* play-button-overlay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "play-button-overlay.png"; sourceTree = "<group>"; };
 		327390B91E299CFE006A5B8D /* modem-dialing-02.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "modem-dialing-02.mp3"; sourceTree = "<group>"; };
 		327390BA1E299CFE006A5B8D /* modem-dialing-02.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "modem-dialing-02.wav"; sourceTree = "<group>"; };
 		328172031E2A99C900037713 /* MessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 		324F53851E1C55E200BC9F90 /* WhatsAudio */ = {
 			isa = PBXGroup;
 			children = (
+				3267FB1D1E984006003A311D /* play-button-overlay.png */,
 				327390B91E299CFE006A5B8D /* modem-dialing-02.mp3 */,
 				327390BA1E299CFE006A5B8D /* modem-dialing-02.wav */,
 				326371841E1C73FE00B9D774 /* WhatsAudio.entitlements */,
@@ -265,6 +268,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3267FB1E1E984006003A311D /* play-button-overlay.png in Resources */,
 				327390BC1E299CFE006A5B8D /* modem-dialing-02.wav in Resources */,
 				324F53911E1C55E200BC9F90 /* LaunchScreen.storyboard in Resources */,
 				327390BB1E299CFE006A5B8D /* modem-dialing-02.mp3 in Resources */,
